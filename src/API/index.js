@@ -21,7 +21,7 @@ export const fetchdata = async (country) => {
 
 export const fetchDailyData = async () => {
   try {
-    const { data } = await axios.get(`${url}/daily`);
+    const { data } = await axios.get(`https://covid19.mathdro.id/api/daily`);
 
     return data.map(({ confirmed, deaths, reportDate: date }) => ({ confirmed: confirmed.total, deaths: deaths.total, date }));
   } catch (error) {
@@ -31,7 +31,7 @@ export const fetchDailyData = async () => {
 
 export const fetchCountries = async () => {
   try {
-    const { data: { countries } } = await axios.get(`${url}/countries`);
+    const { data: { countries } } = await axios.get(`https://covid19.mathdro.id/api/countries`);
 
     return countries.map((country) => country.name);
   } catch (error) {

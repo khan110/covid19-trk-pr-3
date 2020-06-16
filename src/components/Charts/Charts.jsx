@@ -5,31 +5,31 @@ import { fetchDailyData } from '../../API';
 import { Line, Bar } from 'react-chartjs-2';
 
 
-export const Charts = ({data : {confirmed, deaths, recovered}, country}) => {
-    const [dailyData, setDailyData] = useState([]);
+  export const Charts = ({data : {confirmed, deaths, recovered}, country}) => {
+    const [dailyData, setDailyData] = useState({});
     
     useEffect(() => {
         const fetchAPI = async () => {
-            setDailyData(await fetchDailyData());
+            const initialDailyData = await fetchDailyData();
+            setDailyData(initialDailyData);
         }
-       
+      
         fetchAPI();
     } , []);
-
+    console.log(dailyData);
      const lineChart = (
-         dailyData.length
-         ? (
+         dailyData[0] ? (
              <Line
              data={{
                  labels: dailyData.map(({ date }) => date) ,
                   datasets: [{
                    data: dailyData.map(({ confirmed }) => confirmed) ,
-                   label : 'Infected',
+                   label : 'Worldwide Infected',
                    borderColor: '#3333ff',
                    fill: true,
                  } , {
                     data: dailyData.map(({ deaths }) => deaths) ,
-                    label : 'Deaths',
+                    label : 'Worldwide Deaths',
                     borderColor: 'red',
                     backgroundColor: 'rgba(225, 0, 0, 0.5)',
                     fill: true,
@@ -40,7 +40,7 @@ export const Charts = ({data : {confirmed, deaths, recovered}, country}) => {
      );      
      //console.log(confirmed, recovered, deaths);
          
-     const barChar =(
+     const barChar = (
          confirmed ?
          (
              <Bar
@@ -61,7 +61,7 @@ export const Charts = ({data : {confirmed, deaths, recovered}, country}) => {
             }}
             options={{
                 legend:{display: false},
-                title: {display: true, text:`Current state in ${country}`},
+                title: {display:true, text:`Current state in ${country}`},
             }}/>
 
              
@@ -70,11 +70,17 @@ export const Charts = ({data : {confirmed, deaths, recovered}, country}) => {
          
     return (
         <div className={styles.container}>
-            {country ? barChar : lineChart}
 
+          {barChar}  
+          <br />
+          
+          {lineChart}
+       
 
 
         </div>
     )
     
-    }
+    } 
+
+    
