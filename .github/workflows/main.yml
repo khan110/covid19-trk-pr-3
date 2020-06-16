@@ -31,7 +31,11 @@ jobs:
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
-
+        
+    #install material ui core    
+    - name: install Material UI
+      run : yarn add @material-ui/core
+  
     # Build React App 
     - name: Build React App
       run: |
