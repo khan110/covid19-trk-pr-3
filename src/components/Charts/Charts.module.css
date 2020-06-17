@@ -5,11 +5,11 @@
     justify-content:center;
     flex-direction:column ;
     text-align: center;
-    width: 65%;
+    width: 90%;
      
 }
 
-@media (max-width: 370px){
+@media (max-width: 270px){
     .container {
         margin: 100%;}
     }
