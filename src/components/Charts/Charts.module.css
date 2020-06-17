@@ -8,3 +8,8 @@
     width: 65%;
      
 }
+
+@media (max-width: 370px){
+    .container {
+        margin: 100%;}
+    }
