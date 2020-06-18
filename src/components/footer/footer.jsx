@@ -5,7 +5,7 @@ export const Footer = () => {
     return (
         <div className={styles.footer}>
             <p>
-               &copy;{new Date().getFullYear()} Umair A. Khan 
+                  | &copy;{new Date().getFullYear()} Umair A. Khan |
             </p>
         </div>
     )

@@ -4,7 +4,7 @@ import { Charts } from "./components/Charts/Charts";
 import { CountryPicker } from "./components/Country picker/CountryPicker";
 import styles from "./App.module.css";
 import { fetchdata } from "./API/index";
-import { Footer } from './components/footer/footer';
+import { Footer } from "./components/footer/footer.jsx";
 
 import covid from './images/covidm.jpg';
 
