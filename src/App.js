@@ -4,6 +4,7 @@ import { Charts } from "./components/Charts/Charts";
 import { CountryPicker } from "./components/Country picker/CountryPicker";
 import styles from "./App.module.css";
 import { fetchdata } from "./API/index";
+import { Footer } from './components/footer/footer';
 
 import covid from './images/covidm.jpg';
 
@@ -31,7 +32,7 @@ class App extends React.Component {
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Charts data={data} country={country}  />
-       
+       <Footer />
       </div>
     );
   }
